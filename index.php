@@ -2,6 +2,14 @@
 
 include "chatCore.php";
 
+if(isset($_POST['send'])){
+    if(sendMsg($_POST[''], $_POST['message'])){
+        echo "Message sent.";
+    }else{
+        echo "No message sent.";
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -21,13 +29,14 @@ and open the template in the editor.
             <?php
             $messages = getMsg();
             foreach($messages as $msg){
-                echo $message['sender'] . 'Sent<br>';
+                echo $msg['sender'] . 'Sent<br>';
                 echo $msg['message'] . '<br><br>';
              }
             ?>
             <form action="index.php" method="POST">
                 <label>Enter Name:<input type="text" name="sender"></label>
-                <label>Enter Message:<input type="text" name="msg"></label><br>
+                <label>Enter Message:<input type="text" name="message"></label><br>
+                <input type="submit" name="send" value="Send Message:"> 
                 
             </form>
         </div>

@@ -3,4 +3,3 @@
 include "db.php";
 include "chatFunctions.php";
 
-getMsg();
