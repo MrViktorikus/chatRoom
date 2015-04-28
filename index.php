@@ -3,7 +3,7 @@
 include "chatCore.php";
 
 if(isset($_POST['send'])){
-    if(sendMsg($_POST[''], $_POST['message'])){
+    if(sendMsg($_POST['sender'], $_POST['message'])){
         echo "Message sent.";
     }else{
         echo "No message sent.";
@@ -36,7 +36,7 @@ and open the template in the editor.
             <form action="index.php" method="POST">
                 <label>Enter Name:<input type="text" name="sender"></label>
                 <label>Enter Message:<input type="text" name="message"></label><br>
-                <input type="submit" name="send" value="Send Message:"> 
+                <input type="submit" name="send" value="Send Message"> 
                 
             </form>
         </div>

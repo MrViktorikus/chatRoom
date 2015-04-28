@@ -1,5 +1,5 @@
 <?php
 
 include "db.php";
-include "chatFunctions.php";
 
+include "ChatFunctions.php";
