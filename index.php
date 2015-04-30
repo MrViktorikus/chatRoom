@@ -1,6 +1,8 @@
 <?php
 
-include "chatCore.php";
+include "db.php";
+
+include "ChatFunctions.php";
 
 if(isset($_POST['send'])){
     if(sendMsg($_POST['sender'], $_POST['message'])){
@@ -20,25 +22,28 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>*Insert title here*</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
+        <link href="style.css" type="text/css" rel="stylesheet">
     </head>
     <body>
+        
         <div id="messages">
             <?php
             $messages = getMsg();
             foreach($messages as $msg){
-                echo $msg['sender'] . 'Sent<br>';
+                echo "<strong>" . $msg['sender'] . "<br></strong>";
                 echo $msg['message'] . '<br><br>';
              }
             ?>
-            <form action="index.php" method="POST">
-                <label>Enter Name:<input type="text" name="sender"></label>
-                <label>Enter Message:<input type="text" name="message"></label><br>
-                <input type="submit" name="send" value="Send Message"> 
-                
-            </form>
+            
         </div>
+        <form action="index.php" method="POST">
+                <label>Enter Name:<input type="text" name="sender"></label>
+                <label>Enter Message:<input type="text" name="message"></label><br><br>
+                <input type="submit" name="send" value="Send Message"> 
+                <a href ="deleteChat.php">Clear All</a>
+            </form>
     </body>
 </html>

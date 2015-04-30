@@ -2,14 +2,14 @@
 
 function getMsg() {
     global $dbm;
-    $sql = "SELECT * FROM chat";
+    $sql = "SELECT * FROM chat ORDER BY messageID DESC";
     $stmt = $dbm->prepare($sql);
     $stmt->execute();
     $messages = $stmt->fetchAll();
-    var_dump($messages);
+//    var_dump($messages);
     return $messages;
 
-    //    $run = mysql_query($sql);
+//    $run = mysql_query($sql);
 //    $messages = array();
 //    while($msg = mysql_fetch_assoc($run)){
 //    $messages[] = array('sender'=>$message['sender'], 'message'=>$message['Message']);
@@ -24,10 +24,10 @@ function sendMsg($sender, $msg) {
 //        $msg = mysql_real_escape_string($msg);
 //        $msg = $dbm->quote($msg);
 
-        $sql = "INSERT INTO chat(sender, message) VALUES(:sender, :msg)";
+        $sql = "INSERT INTO chat(sender, message) VALUES(:sender, :message)";
         $stmt = $dbm->prepare($sql);
         $stmt->bindParam("sender", $sender);
-        $stmt->bindParam("message", $message);
+        $stmt->bindParam("message", $msg);
         $stmt->execute();
     }
 }
