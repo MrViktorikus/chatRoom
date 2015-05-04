@@ -1,8 +1,10 @@
 <?php
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+include "db.php";
+include "chatFunctions.php";
 
+$messages = getMsg();
+            foreach($messages as $msg){
+                echo "<strong>" . $msg['sender'] . "<br></strong>";
+                echo $msg['message'] . '<br><br>';
+             }

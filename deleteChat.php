@@ -1,3 +1,8 @@
 <?php
+include "db.php";
+$sql = "DELETE FROM chat";
 
-$sql = "DELETE FROM cart";
+        $stmt = $dbm->prepare($sql);
+        $stmt->execute();
+
+header("Location:index.php");
