@@ -6,3 +6,12 @@
     padding: 10px;
     margin:10px;
 }
+
+#feedback{
+    display: none;
+}
+
+#senderName{
+    font-weight: bold;
+    color: blueviolet;
+}

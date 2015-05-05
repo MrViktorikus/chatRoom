@@ -7,6 +7,12 @@ $('#formInput').submit(function(){
        data: {sender: sender, message: message},
        success: function(data){
            $('#feedback').html(data);
+           $('#feedback').fadeIn('slow', function(){
+               $('#feedback').fadeOut();
+           });
+           
+           $('#message').val('');
+           $('#sender').val('');
        }
     });
     

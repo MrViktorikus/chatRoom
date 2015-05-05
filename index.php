@@ -21,7 +21,8 @@ and open the template in the editor.
         
     </head>
     <body>
-        
+        <a href="login.php"><button type="button">Login</button></a>
+        <a href="login.php"><button type="button">Sign Up</button></a>
         <div id="messages">
            
             
@@ -29,8 +30,8 @@ and open the template in the editor.
         <div id="feedback"></div>
         <div id="input">
         <form action="#" method="POST" id="formInput">
-                <label>Enter Name:<input type="text" name="sender" id="sender"></label>
-                <label>Enter Message:<input type="text" name="message" id="message"></label><br><br>
+            <label>Enter Name:<br><input type="text" name="sender" id="sender"></label><br><br>
+                <label>Enter Message:<br><textarea cols="50" rows="4" type="text" name="message" id="message"></textarea></label><br><br>
                 <input type="submit" name="send" value="Send Message"> 
             </form>
         </div>
