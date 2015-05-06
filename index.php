@@ -22,7 +22,7 @@ and open the template in the editor.
     </head>
     <body>
         <a href="login.php"><button type="button">Login</button></a>
-        <a href="login.php"><button type="button">Sign Up</button></a>
+        <a href="signup.php"><button type="button">Sign Up</button></a>
         <div id="messages">
            
             
