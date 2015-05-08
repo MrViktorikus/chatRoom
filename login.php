@@ -3,38 +3,42 @@ session_start();
 
 include "db.php";
 
-$sql = "SELECT username FROM login WHERE username = :username AND password= :password";
-$stmt = $dbm->prepare($sql);
-$stmt->bindParam(":username", $username);
-$stmt->bindParam(":password", $password);
-$stmt->execute();
-$login = $stmt->fetchAll();
+$username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
+$password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
 
-$_SESSION['user'] = NULL;
+$_SESSION['username'] = NULL;
+
+
+
 
 if (isset($_POST['action'])) {
-    if ($_POST["action"] == "login") {
-        
+    if ($_POST["action"] == "Login") {
+
+        $sql = "SELECT username FROM login WHERE username = :username AND password= :password";
+        $stmt = $dbm->prepare($sql);
+        $stmt->bindParam(":username", $username);
+        $stmt->bindParam(":password", $password);
+        $stmt->execute();
+        $login = $stmt->fetchAll();
+
         if ($login != NULL) {
             echo "<br>";
-            echo "Logged in as " . $_POST["user"];
-            $_SESSION["user"] = $username;
+            echo "Logged in as " . $_POST["username"];
+            $_SESSION["username"] = $username;
             header("Location: index.php");
         } else {
             echo "<br>";
-            echo "YOu are a failure. Please try again.";
-            $_SESSION["user"] = NULL;
+            echo "You are a failure. Please try again.";
+            $_SESSION["username"] = NULL;
         }
-        if (($_SESSION['user']) === NULL) {
-    echo "Please login";
-} else {
-    echo "Welcome" . $_POST["user"];
-    $loginform;
-}
+        if (($_SESSION['username']) === NULL) {
+            
+        } else {
+            echo "Welcome" . $_POST["username"];
+            $loginform;
+        }
     }
 }
-
-
 ?>
 <!DOCTYPE html>
 <!--
