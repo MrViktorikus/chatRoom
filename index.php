@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 include "db.php";
 
 include "ChatFunctions.php";
@@ -21,8 +22,15 @@ and open the template in the editor.
         
     </head>
     <body>
-        <a href="login.php"><button type="button">Login</button></a>
-        <a href="signup.php"><button type="button">Sign Up</button></a>
+        <?php
+        if(isset($_SESSION['username'])){
+        if($_SESSION['username'] != NULL){
+        echo "<form method='POST' action='signout.php'>";
+            echo "<input type='submit' name='action' value='Sign Out'>";
+            echo "</form>";
+        }
+        }
+        ?>
         <div id="messages">
            
             
