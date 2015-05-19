@@ -14,10 +14,11 @@ $_SESSION['username'] = NULL;
 if (isset($_POST['action'])) {
     if ($_POST["action"] == "Login") {
 
-        $sql = "SELECT username FROM login WHERE username = :username AND password= :password";
+        $sql = "SELECT username FROM users WHERE username = :username AND password= :password";
         $stmt = $dbm->prepare($sql);
         $stmt->bindParam(":username", $username);
         $stmt->bindParam(":password", $password);
+//        $stmt->bindParam(":email", $email);
         $stmt->execute();
         $login = $stmt->fetchAll();
 
@@ -58,7 +59,7 @@ and open the template in the editor.
             <h3>Username:</h3>
             <input name="username" type="text" placeholder="Username or Email" required><br><br>
             <h3>Password:</h3>
-            <input name="password" type="text" placeholder="Password" required><br><br>
+            <input name="password" type="password" placeholder="Password" required><br><br>
             <input name="action" type="submit" action="action" value="Login">
         </form>
         <div></div>

@@ -19,10 +19,6 @@ function getMsg() {
 function sendMsg($sender, $msg) {
     global $dbm;
     if (!empty($sender) && !empty($msg)) {
-//        $sender = mysql_real_escape_string($sender);
-//        $sender = $dbm->quote($sender);
-//        $msg = mysql_real_escape_string($msg);
-//        $msg = $dbm->quote($msg);
 
         $sql = "INSERT INTO chat(sender, message) VALUES(:sender, :message)";
         $stmt = $dbm->prepare($sql);

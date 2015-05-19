@@ -1,9 +1,9 @@
 <?php
 
-define("DB_SERVER", "localhost");
-define("DB_USER", "root");
-define("DB_PASSWORD", "");
-define("DB_NAME", "chatdb");
+define("DB_SERVER", "berzanappen.se");
+define("DB_USER", "berzanap_viktor");
+define("DB_PASSWORD", "segrare");
+define("DB_NAME", "berzanap_viktor");
 
 $dsn = 'mysql:dbname=' . DB_NAME . ';host=' . DB_SERVER . ';charset=utf8';
 $attributes = array(PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC);
