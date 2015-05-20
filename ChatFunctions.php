@@ -2,7 +2,7 @@
 
 function getMsg() {
     global $dbm;
-    $sql = "SELECT * FROM chat ORDER BY messageID DESC";
+    $sql = "SELECT * FROM chat";
     $stmt = $dbm->prepare($sql);
     $stmt->execute();
     $messages = $stmt->fetchAll();

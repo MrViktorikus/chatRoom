@@ -10,9 +10,9 @@ if(isset($_GET['sender']) && !empty($_GET['sender'])){
         $message = $_GET['message'];
         
         if(sendMsg($sender, $message)){
-            echo "Message sent";
-        }else{
             echo "Message wasn't sent";
+        }else{
+            echo "Message sent";
         }
         
     }else{

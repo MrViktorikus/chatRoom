@@ -13,6 +13,7 @@ $('#formInput').submit(function(){
            
            $('#message').val('');
 //           $('#sender').val('');
+
        }
     });
     

@@ -21,12 +21,7 @@ if (isset($_POST['action'])) {
                 $stmt->bindParam(':username', $username);
                 $stmt->bindParam(':password', $password);
                 $stmt->bindParam(':email', $email);
-                $success = $stmt->execute();
-                if($success){
-                    echo "Finnemang";
-                }else{
-                    echo "Funkar inte";
-                }
+                $success = $stmt->execute();          
 
 //                $sql = "SELECT username FROM login WHERE username = :username AND password = :password";
 //                $stmt = $dbm->prepare($sql);
@@ -34,7 +29,7 @@ if (isset($_POST['action'])) {
 //                $stmt->execute();
 //                $login = $stmt->fetchAll();
 
-                header('Location: enterChat.php');
+               
             } else {
                 echo "Passwords did not match";
             }
@@ -54,6 +49,17 @@ if (isset($_POST['action'])) {
         <form method="POST">
             <h3>Username:</h3>
             <input name="username" type="text" placeholder="Username" required><br>
+            <div id="invalidUsername">
+            <?php
+            if(isset($success)){
+            if(!$success){
+                    header('Location: enterChat.php');
+                }else{
+                    echo "Username already in use, please choose another.";
+                }
+            }
+                ?>
+            </div>
             <h3> Email:</h3>
             <input name="email" type="email" placeholder="Email" required>
             <h3>Password:</h3>
@@ -62,6 +68,6 @@ if (isset($_POST['action'])) {
             <input name="rePassword" type="password" placeholder="Password" required><br><br>
             <input name="action" type="submit" action="action" value="Sign Up">
         </form>
-        <div></div>
+        <script type="text/javascript" src="scripts/signup.js"></script>
     </body>
 </html>

@@ -20,7 +20,7 @@ and open the template in the editor.
 
     </head>
     <body>
-
+<?php echo "Logged in as " . $_SESSION["username"]; ?>
         <?php
         if (isset($_SESSION['username'])) {
             if (isset($_SESSION['username'])) {
@@ -33,26 +33,26 @@ and open the template in the editor.
             ?>
             <div id="messages">
 
-    <!--<label>Logged in as: <strong></strong></label><br><br>--> 
+            <!--<label>Logged in as: <strong></strong></label><br><br>--> 
             </div>
-            <div id="feedback"></div>
             <div id="input">
                 <form action="#" method="POST" id="formInput">
-                    <label>Enter Name:<br><input type="hidden" <?php echo "value='" . $_SESSION["username"] . "'" ?> name="sender" id="sender"></label><br><br>
-                    <?php echo $_SESSION["username"]; ?>
-                    <label>Enter Message:<br><textarea cols="50" rows="4" type="text" name="message" id="message"></textarea></label><br><br>
-                    <input type="submit" name="send" value="Send Message"> 
+                    <input type="hidden" <?php echo "value='" . $_SESSION["username"] . "'" ?> name="sender" id="sender">
+                    
+                    <label>Enter Message:<br><textarea cols="50" rows="4" type="text" name="message" id="message"></textarea></label><br>
+                    <div id="feedback"></div><br>
+                    <input type="submit" name="send" value="Send Message">
                 </form>
             </div>
 
-            <a href ="deleteChat.php">Clear All</a>
+        <br><a href ="deleteChat.php">Clear All</a>
             <script type="text/javascript" src="scripts/jquery-1.11.2.min.js"></script>
             <script type="text/javascript" src="scripts/autoChat.js"></script>
             <script type="text/javascript" src="scripts/send.js"></script>
         </body>
     </html>
     <?php
-}else{
+} else {
     header("Location: enterChat.php");
 }
 ?>
