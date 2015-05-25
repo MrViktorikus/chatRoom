@@ -52,7 +52,7 @@ if (isset($_POST['action'])) {
             <div id="invalidUsername">
             <?php
             if(isset($success)){
-            if(!$success){
+            if($success){
                     header('Location: enterChat.php');
                 }else{
                     echo "Username already in use, please choose another.";

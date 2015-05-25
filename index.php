@@ -2,7 +2,7 @@
 session_start();
 include "db.php";
 
-include "ChatFunctions.php";
+include "chatFunctions.php";
 ?>
 
 <!DOCTYPE html>
