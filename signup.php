@@ -4,7 +4,7 @@ session_start();
 $_SESSION['username'] = NULL;
 include "db.php";
 
-$existingUsers = "SELECT username FROM login";
+$existingUsers = "SELECT username FROM users";
 
 $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
