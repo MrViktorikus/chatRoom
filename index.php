@@ -41,7 +41,7 @@ and open the template in the editor.
                     
                     <label>Enter Message:<br><textarea cols="50" rows="4" type="text" name="message" id="message"></textarea></label><br>
                     <div id="feedback"></div><br>
-                    <input type="submit" name="send" value="Send Message">
+                    <input type="submit" name="send" value="Send Message" id="send">
                 </form>
             </div>
 
